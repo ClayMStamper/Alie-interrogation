@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ruler : Item {
-
+	/*
 	public override void AffectNPC (NPCEmotions NPC) {
 
 		Debug.Log (strength);
@@ -11,5 +11,5 @@ public class Ruler : Item {
 		NPC.AddFear (strength / 2);
 		NPC.AddJoy (-strength / 2);
 		NPC.AddLaughter (-strength / 2);
-	}
+	}*/
 }

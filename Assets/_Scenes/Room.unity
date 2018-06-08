@@ -724,7 +724,7 @@ Prefab:
     - target: {fileID: 114570166205932434, guid: 0427660345441544cb02cb2718f05211,
         type: 2}
       propertyPath: joyMod
-      value: 0.1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114570166205932434, guid: 0427660345441544cb02cb2718f05211,
         type: 2}
@@ -739,7 +739,7 @@ Prefab:
     - target: {fileID: 114570166205932434, guid: 0427660345441544cb02cb2718f05211,
         type: 2}
       propertyPath: painMod
-      value: 0.1
+      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0427660345441544cb02cb2718f05211, type: 2}

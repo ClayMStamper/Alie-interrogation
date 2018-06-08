@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hammer : Item {
-
+	/*
 	public override void AffectNPC (NPCEmotions NPC) {
 
 		Debug.Log (strength);
@@ -12,5 +12,5 @@ public class Hammer : Item {
 		NPC.AddJoy (-strength / 2);
 		NPC.AddLaughter (-strength / 2);
 	}
-
+*/
 }
