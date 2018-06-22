@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Laughter isn't implemented here since the smiley faces
 // are just a proof of concept
@@ -11,6 +12,8 @@ public class NPCEmotions : MonoBehaviour {
 	public const string FEAR = "fear";
 	public const string LAUGHTER = "laughter";
 	public const string PAIN = "pain";
+
+	[SerializeField] Text joy, fear, laughter, pain;
 
 	GameObject currentFace;
 
@@ -26,6 +29,11 @@ public class NPCEmotions : MonoBehaviour {
 		emotions.Add("fear", 10);
 		emotions.Add("laughter", 10);
 		emotions.Add("pain", 10);
+
+		joy.text = "Joy: " + emotions [JOY];
+		pain.text = "Pain: " + emotions [PAIN];
+		laughter.text = "Laughter: " + emotions [LAUGHTER];
+		fear.text = "Fear: " + emotions [FEAR];
 
 	}
 
@@ -55,11 +63,10 @@ public class NPCEmotions : MonoBehaviour {
 	//where visible changes to the npc are made
 	void OnUpdateEmotions(){
 
-	//	Debug.Log ("joy = " + emotions [JOY]);
-	//	Debug.Log ("Fear = " + emotions [FEAR]);
-	//	Debug.Log ("Pain = " + emotions [PAIN]);
-
-//		GameObject newFace = happy;
+		joy.text = "Joy: " + emotions [JOY];
+		pain.text = "Pain: " + emotions [PAIN];
+		laughter.text = "Laughter: " + emotions [LAUGHTER];
+		fear.text = "Fear: " + emotions [FEAR];
 
 		//happy
 		if (emotions [FEAR] < 50f && emotions [PAIN] < 50f) {

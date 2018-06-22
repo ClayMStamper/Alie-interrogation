@@ -332,9 +332,9 @@ public class OVRGrabber : MonoBehaviour
 
 			if (snapToPoint != null) {
 				Vector3 offset = snapToPoint.position - snapToPoint.parent.position;
-				grabbedRigidbody.MovePosition (transform.position - offset);
+				grabbedRigidbody.MovePosition ((transform.position - offset) * Time.deltaTime);
 			} else {
-				grabbedRigidbody.MovePosition (transform.position);
+				grabbedRigidbody.MovePosition (transform.position * Time.deltaTime);
 			}
             grabbedRigidbody.MoveRotation(grabbableRotation);
         }

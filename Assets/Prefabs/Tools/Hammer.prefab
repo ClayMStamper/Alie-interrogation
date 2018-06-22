@@ -184,10 +184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12120c5a933b4683beda5e4a9009d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joyMod: 1
-  laughterMod: 1
-  fearMod: 1
-  painMod: 0
+  joyMod: -1
+  laughterMod: -1
+  fearMod: 0.6
+  painMod: 1.2
   soundEffects:
   - {fileID: 8300000, guid: e383eb4fd25e2412db496a98f2b81e01, type: 3}
   - {fileID: 8300000, guid: 05650435646394691a144f5b3eae0320, type: 3}
