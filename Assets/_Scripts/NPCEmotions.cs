@@ -12,11 +12,6 @@ public class NPCEmotions : MonoBehaviour {
 	public const string LAUGHTER = "laughter";
 	public const string PAIN = "pain";
 
-	[SerializeField]
-	GameObject happy, sad, scared, pleased, cringe, mellow, 
-	intoxicated, gasp, winking, pissed, offended, 
-	worried, crying, doomed, kissey, lovey, derp, oof;
-
 	GameObject currentFace;
 
 	public Dictionary <string, float> emotions;
@@ -24,7 +19,7 @@ public class NPCEmotions : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		ChangeFace (happy);
+//		ChangeFace (happy);
 
 		emotions = new Dictionary<string, float> ();
 		emotions.Add ("joy", 10);
@@ -64,70 +59,64 @@ public class NPCEmotions : MonoBehaviour {
 	//	Debug.Log ("Fear = " + emotions [FEAR]);
 	//	Debug.Log ("Pain = " + emotions [PAIN]);
 
-		GameObject newFace = happy;
+//		GameObject newFace = happy;
 
 		//happy
 		if (emotions [FEAR] < 50f && emotions [PAIN] < 50f) {
 			if (emotions [JOY] > 20f) {
-				newFace = happy;
+//				newFace = happy;
 				if (emotions [JOY] > 50f) {
-					newFace = pleased;
+//					newFace = pleased;
 					if (emotions [JOY] > 70f) {
-						newFace = lovey;
+//						newFace = lovey;
 					}
 				}
-				ChangeFace (newFace);
+//				ChangeFace (newFace);
 			} 
 		}
 
 		//scared
 		if ((emotions [JOY] / emotions [FEAR]) < 2 && emotions [FEAR] > emotions[PAIN]) { 
 			if (emotions [FEAR] > 10f) {
-				newFace = cringe;
+//				newFace = cringe;
 				if (emotions [FEAR] > 30f) {
-					newFace = worried;
+//					newFace = worried;
 					if (emotions [FEAR] > 50f) {
-						newFace = scared;
+//						newFace = scared;
 						if (emotions [FEAR] > 70f) {
-							newFace = doomed;
+//							newFace = doomed;
 						}
 					}
 				}
 			}
-			ChangeFace (newFace);
+//			ChangeFace (newFace);
 		}
 
 		//hurt
 		if ((emotions [JOY] / emotions [PAIN]) < 2 && emotions [PAIN] > emotions [FEAR]) { 
 			if (emotions [PAIN] > 10f) {
-				newFace = sad;
+//				newFace = sad;
 				if (emotions [PAIN] > 20f) {
-					newFace = gasp;
+//					newFace = gasp;
 					if (emotions [PAIN] > 40f) {
-						newFace = offended;
+//						newFace = offended;
 						if (emotions [PAIN] > 60f) {
-							newFace = pissed;
+//							newFace = pissed;
 							if (emotions [PAIN] > 80f) {
-								newFace = crying;
+//								newFace = crying;
 							}
 						}
 					}
 				}
 			}
-			ChangeFace (newFace);
+//			ChangeFace (newFace);
 		}
 
 
 	}
-
-	//destroys old face and spawns a new one
-	void ChangeFace(GameObject newFace){
 		
-		if (currentFace != null) {
-			Destroy (currentFace);
-		}
-
-		currentFace = Instantiate (newFace, transform);
+	void ChangeFace(){
+		
 
 	}
 }
