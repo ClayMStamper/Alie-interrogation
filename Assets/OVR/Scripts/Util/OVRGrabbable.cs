@@ -80,6 +80,7 @@ public class OVRGrabbable : MonoBehaviour
 	/// <summary>
 	/// An offset relative to the OVRGrabber where this object can snap when grabbed.
 	/// </summary>
+	[HideInInspector]
     public Transform snapOffset
     {
         get { return m_snapOffset; }

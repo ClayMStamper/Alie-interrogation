@@ -32,7 +32,6 @@ public class NonVRPlayerGrab : MonoBehaviour {
 						rb = item.GetComponent <Rigidbody> ();
 						rb.angularDrag = 100f;
 						item.SetParent (Camera.main.transform);
-						item.position = item.position;
 						offset = item.localPosition;
 						item.localRotation = Quaternion.Euler (Vector3.zero);
 					}
@@ -54,9 +53,9 @@ public class NonVRPlayerGrab : MonoBehaviour {
 		float dir = Input.GetAxis ("Mouse ScrollWheel");
 
 		if (dir > 0f) {
-			offset.z += 0.1f;
+		//	offset.z += 0.1f;
 		} else if (dir < 0f) {
-			offset.z -= 0.1f;
+		//	offset.z -= 0.1f;
 		}
 			
 		if (item != null) {
