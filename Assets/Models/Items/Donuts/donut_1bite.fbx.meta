@@ -1,26 +1,14 @@
 fileFormatVersion: 2
-guid: 5bc297502cb0c1641a4fbaff0559c6f7
+guid: cf2eb07f675b5bc4e8d2e30eeba19ba2
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Armature
-    100002: Bone
-    100004: Bone_end
-    100006: Cube.008
-    100008: //RootNode
-    400000: Armature
-    400002: Bone
-    400004: Bone_end
-    400006: Cube.008
-    400008: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: No Name
-    2300000: Cube.008
-    3300000: Cube.008
-    4300000: Cube.008
-    9500000: //RootNode
-    11100000: //RootNode
-    13700000: Cube.008
-    2186277476908879412: ImportLogs
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Torus.001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -75,7 +63,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
@@ -93,10 +81,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

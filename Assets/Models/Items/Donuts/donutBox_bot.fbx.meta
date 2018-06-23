@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e393b888337a19046a8f9df9c43f605f
+guid: 914ba9abdc037427dbb288c19fdb93e9
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,13 +8,8 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Torus.000
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 976a8d5e337951c43a0c85bf3a9882ec, type: 2}
+    4300000: Cube.008
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

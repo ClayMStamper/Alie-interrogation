@@ -19,6 +19,7 @@ public abstract class Item : MonoBehaviour {
 	NPCEmotions NPC;
 
 	bool justHit = false;
+	bool hitting = false;
 
 	public AudioClip[] soundEffects;
 
@@ -40,7 +41,22 @@ public abstract class Item : MonoBehaviour {
 
 	}
 
+	void Update(){
+
+		if (hitting) {
+
+
+
+		}
+
+	}
+
 	void OnCollisionEnter(Collision col){
+
+		NoPassThrough (col.transform);
+
+		if (justHit)
+			return;
 
 		NPC = col.gameObject.GetComponent<NPCEmotions> ();
 
@@ -48,32 +64,33 @@ public abstract class Item : MonoBehaviour {
 
 		audio.volume = (strength / 50);
 
+		Debug.Log ("Just hit: " + justHit);
+
 		//hits a player
-		if (NPC != null && justHit == false) {
+		if (NPC != null) {
+
+			justHit = true;
+			StartCoroutine (JustHit ());
 
 			audio.clip = soundEffects [0];
 			audio.Play ();
 
 			AffectNPC (NPC);
-			justHit = true;
 
-		} else if (col.transform.tag == "Surface" && justHit == false) { //hit something else
-			
+		} else if (col.transform.tag == "Surface") { //hit something else
+
+			justHit = true;
+			StartCoroutine (JustHit ());
+
 			audio.clip = soundEffects [1];
 			audio.Play ();
-			justHit = true;
 
 		}
 
 	}
 
-	//keeps from repeatedly hitting
 	void OnCollisionExit(Collision col){
-
-		NPC = col.gameObject.GetComponent<NPCEmotions> ();
-
-		justHit = false;
-
+		hitting = false;
 	}
 
 	public virtual void Cast(){
@@ -93,6 +110,27 @@ public abstract class Item : MonoBehaviour {
 		NPC.AddFear (strength * fearMod);
 		NPC.AddJoy (strength * joyMod);
 		NPC.AddLaughter (strength * laughterMod);
+
+	}
+
+	IEnumerator JustHit(){
+
+		while (true) {
+
+			Debug.Log ("waiting");
+
+			yield return new WaitForSeconds (1f);
+
+			justHit = false;
+			Debug.Log ("can hit again");
+
+		}
+
+	}
+
+	void NoPassThrough(Transform col){
+
+		hitting = true;
 
 	}
 
