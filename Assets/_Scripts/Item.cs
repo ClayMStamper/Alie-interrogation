@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))][RequireComponent(typeof(Rigidbody))]
 public abstract class Item : MonoBehaviour {
 
+	//The last item that was grabbed
+	public static Item lastGrabbed;
+
 	//factored into stat modifications instead of changing stat mods
 	protected float strength = 1.0f;
 
@@ -19,7 +22,10 @@ public abstract class Item : MonoBehaviour {
 	NPCEmotions NPC;
 
 	bool justHit = false;
-	bool hitting = false;
+
+	[HideInInspector]
+	public bool hitting = false;
+	Vector3 hitDirection;
 
 	public AudioClip[] soundEffects;
 
@@ -45,7 +51,13 @@ public abstract class Item : MonoBehaviour {
 
 		if (hitting) {
 
+			Vector3 clampedPos = transform.position;
 
+			if (hitDirection.x > 0) {
+				clampedPos.x = Mathf.Clamp (clampedPos.x, float.MinValue, clampedPos.x);
+			} else if (hitDirection.x < 0){
+				clampedPos.x = Mathf.Clamp (clampedPos.x, clampedPos.x, float.MaxValue);
+			}
 
 		}
 
@@ -131,6 +143,13 @@ public abstract class Item : MonoBehaviour {
 	void NoPassThrough(Transform col){
 
 		hitting = true;
+
+		Vector3 heading = col.position - transform.position;
+
+		float distance = heading.magnitude;
+		hitDirection = heading / distance;
+
+//		Debug.Log (hitDirection);
 
 	}
 

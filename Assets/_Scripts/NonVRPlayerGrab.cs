@@ -26,24 +26,15 @@ public class NonVRPlayerGrab : MonoBehaviour {
 
 					//obj clicked on is an item
 					if (hit.transform.GetComponent<Item> ()) {
-						
-						item = hit.transform;
 
-						rb = item.GetComponent <Rigidbody> ();
-						rb.angularDrag = 100f;
-						item.SetParent (Camera.main.transform);
-						offset = item.localPosition;
-						item.localRotation = Quaternion.Euler (Vector3.zero);
+						Pickup (hit);
+
 					}
 
 				}
 			} else { //clicked to drop item
-				
-				rb.angularDrag = 0.15f;
-			//	rb.AddForce (rb.angularVelocity);
-				item.SetParent (defaultParent);
 
-				item = null;
+				Drop ();
 
 			}
 
@@ -60,10 +51,38 @@ public class NonVRPlayerGrab : MonoBehaviour {
 			
 		if (item != null) {
 
-			item.localPosition = offset;
-	//		item.localRotation = Quaternion.Euler (Vector3.zero);
+			Debug.Log ("pos" + item.localPosition);
+			Debug.Log ("offset" + offset);
+			Debug.Log ("tether" + (item.localPosition - offset));
 
+			if (!Item.lastGrabbed.hitting) {
+
+				Debug.Log ("Moving " + item);
+				item.localPosition = offset;
+
+			}
 		}
+	}
+
+	void Pickup(RaycastHit hit){
+
+		item = hit.transform;
+
+		rb = item.GetComponent <Rigidbody> ();
+		rb.angularDrag = 100f;
+		item.SetParent (Camera.main.transform);
+		offset = item.localPosition;
+		item.localRotation = Quaternion.Euler (Vector3.zero);
+		Item.lastGrabbed = item.GetComponent <Item> ();
+
+	}
+
+	void Drop(){
+
+		rb.angularDrag = 0.15f;
+		item.SetParent (defaultParent);
+
+		item = null;
 
 	}
 }
